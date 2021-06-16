@@ -5,7 +5,12 @@ This repository serves to reproduce the error of AESM reporting `Malformed reque
 Really appreciate if someone could help me solve this error~
 
 ## Description
-The DCAP quote generation failed for graphene running within docker containers.
+The DCAP quote generation failed for graphene running within docker containers, but it's fine when running the official DCAP [SampleCodes][dcap-samplecode] by Intel.
+
+The specific error is reported by the AESM, and goes as 
+```bash
+Malformed request received (May be forged for attack)
+```
 
 The demo app goes in the testbot folder, where
 - hello-world.c is the simplified version of [LibOS/shim/test/regression/attestation.c][attestation.c]
@@ -77,7 +82,9 @@ aesm_service[24]: Malformed request received (May be forged for attack)
 - dcap: dcap1.9.100.3
 - PCCS: DCAP_1.9 as built according to [intel-pccs-1.9/Dockerfile](intel-pccs-1.9/Dockerfile)
 - graphene: [8bce8e6][graphene]
+- graphene's protobuf source code for AESM goes in the aesm-pb folder
 
 [attestation.c]: https://github.com/oscarlab/graphene/blob/8bce8e633e2d7f40816cd527060cd539c6f307fa/LibOS/shim/test/regression/attestation.c#L280
+[dcap-samplecode]: https://github.com/intel/SGXDataCenterAttestationPrimitives/tree/DCAP_1.9/SampleCode
 [graphene]: https://github.com/oscarlab/graphene/tree/8bce8e633e2d7f40816cd527060cd539c6f307fa
 [sammyne/graphene:8bce8e6-ubuntu18.04]: https://github.com/sammyne/ghcr.io/blob/main/graphene/8bce8e6/ubuntu18.04/Dockerfile
