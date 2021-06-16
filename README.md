@@ -67,9 +67,6 @@ Logging goes as follows
 ```bash
 root@9f17b8b8dbf6:/graphene# graphene-sgx hello-world
 error: Using insecure argv source. Graphene will continue application execution, but this configuration must not be used in production!
-opening quote1.dat failed
-opening quote2.dat failed
-quote.len = 4594
 Test quote interface... SUCCESS
 aesm_service[24]: Malformed request received (May be forged for attack)
 ```
